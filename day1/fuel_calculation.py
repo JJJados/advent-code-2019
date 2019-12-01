@@ -9,7 +9,7 @@ def calculate_additional_fuel(mass):
     if mass <= 0:
         return 0
 
-    return calculate_additional_fuel(int((floor(mass / 3)) - 2)) + mass
+    return calculate_additional_fuel(calculate_fuel(mass)) + mass
 
 # Returns fuel requirement based on module masses in file
 def fuel_requirement(module_masses):
