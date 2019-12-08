@@ -30,8 +30,7 @@ def get_visited(path)
     return visited
 end
 
-def manhatten_distance()
-    path_1, path_2, = File.read("wire_path.txt").split("\n")
+def manhatten_distance(path_1, path_2)
     intersect = get_visited(path_1).keys & get_visited(path_2).keys
     
     distance = intersect.map { |x, y|
@@ -41,8 +40,7 @@ def manhatten_distance()
     return distance
 end
 
-def fewest_steps()
-    path_1, path_2, = File.read("wire_path.txt").split("\n")
+def fewest_steps(path_1, path_2)
     visited_1, visited_2 = get_visited(path_1), get_visited(path_2)
     intersect = visited_1.keys & visited_2.keys
 
@@ -53,7 +51,6 @@ def fewest_steps()
     return distance
 end
 
-distance = manhatten_distance()
-puts "Manhatten Distance: #{distance}"
-distance = fewest_steps()
-puts "Fewest Steps: #{distance}"
+path_1, path_2, = File.read("wire_path.txt").split("\n")
+puts "Manhatten Distance: #{manhatten_distance(path_1, path_2)}"
+puts "Fewest Steps: #{fewest_steps(path_1, path_2)}"
